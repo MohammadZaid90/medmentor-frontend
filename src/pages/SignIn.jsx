@@ -84,7 +84,7 @@ export default function SignIn() {
     }
   };
 
-  const isSignIn = location.pathname === "/";
+  const isSignIn = location.pathname === "/signin";
   const isSignUp = location.pathname === "/signup";
 
   return (
@@ -108,7 +108,7 @@ export default function SignIn() {
         <div className="flex justify-center mb-6">
           <div className="flex w-96 bg-gray-200 rounded-full p-1">
             <button
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/signin")}
               className={`flex-1 py-2 rounded-full font-medium shadow-sm transition ${
                 isSignIn ? "bg-white text-black" : "bg-gray-200 text-gray-600 hover:bg-gray-300"
               }`}
