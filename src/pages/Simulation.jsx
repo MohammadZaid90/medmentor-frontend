@@ -3,7 +3,7 @@ import { useEffect } from "react";
 export default function Simulation() {
   useEffect(() => {
     // Redirect immediately when page opens
-    window.location.replace("https://med-mentor-orcin.vercel.app/cases");
+    window.location.replace("https://med-mentor-orcin.vercel.app");
   }, []);
 
   return (
