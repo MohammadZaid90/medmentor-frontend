@@ -1,0 +1,133 @@
+.topbar {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+
+  width: min(920px, 86%);
+  border-radius: 9999px;
+  padding: 6px;
+  box-sizing: border-box;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.65) 0%,
+    rgba(245, 245, 245, 0.3) 35%,
+    rgba(220, 220, 220, 0.15) 70%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  backdrop-filter: blur(6px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+/* inner pseudo rim & glossy top highlight (for crystal rim) */
+.topbar::before {
+  content: "";
+  position: absolute;
+  inset: 1px; /* leave tiny outer border */
+  border-radius: 9999px;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0)
+  );
+  mix-blend-mode: screen;
+  box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.04);
+}
+
+/* inner content container that holds icons and logo */
+.topbar-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px; /* taller like your screenshot */
+  gap: 12px;
+  padding: 0 18px;
+  box-sizing: border-box;
+}
+
+/* left & right slots keep symmetry */
+.left-slot,
+.right-slot {
+  width: 56px; /* reserve space so icons sit centered */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* optional small logo circle */
+.logo-img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* the center icons row */
+.icons-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: 1 1 auto;
+  justify-content: center;
+}
+
+/* each icon button: rounded mini-pill with subtle inner border */
+.icon-btn {
+  width: 56px;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.01)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  color: rgba(255, 255, 255, 0.96); /* SVG stroke uses currentColor */
+}
+
+/* hover states to match polished feel */
+.icon-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* ensure svg strokes follow the color */
+.icon-btn svg {
+  display: block;
+  stroke: currentColor;
+  fill: none;
+}
+
+/* responsive tweaks */
+@media (max-width: 640px) {
+  .topbar {
+    width: 94%;
+    top: 12px;
+  }
+  .topbar-inner {
+    height: 56px;
+    padding: 0 12px;
+  }
+  .icon-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+  }
+  .left-slot,
+  .right-slot {
+    width: 44px;
+  }
+}
