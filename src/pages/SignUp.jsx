@@ -128,7 +128,7 @@ export default function SignUp() {
         <div className="flex justify-center mb-6">
           <div className="flex w-80 bg-gray-100 rounded-full p-1">
             <Link
-              to="/"
+              to="/signin"
               className="flex-1 py-2 text-gray-600 bg-gray-100 font-medium rounded-full hover:bg-gray-200 transition text-center"
             >
               Sign In
